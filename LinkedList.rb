@@ -37,13 +37,6 @@ class LinkedList
     end
   end
 
-  def pop(node = head)
-    if node.next_node == self.tail
-      puts tail.value
-      return node.next_node = nil
-    end
-    pop(node.next_node)
-  end
 
   def size(count = 0, node = head)
     return count if node.nil?
@@ -55,6 +48,14 @@ class LinkedList
     return node if count == index
     count += 1 
     at(index, node.next_node, count)
+  end
+  
+  def pop(node = head)
+    if node.next_node == self.tail
+      puts tail.value
+      return node.next_node = nil
+    end
+    pop(node.next_node)
   end
 
   def contains?(value, node = head)
