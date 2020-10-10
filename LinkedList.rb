@@ -66,10 +66,11 @@ class LinkedList
     contains?(value, node.next_node)
   end
 
-  def find(value, node = head, marker = 0)
+  def find(value, node = head, count = 0)
     return nil unless self.contains?(value)
-    return marker if node.value == value
-    find(value, node.next_node, marker += 1)
+    return count if node.value == value
+    count +=1
+    find(value, node.next_node, count)
   end
 
   def to_s(node = head, output = "")
